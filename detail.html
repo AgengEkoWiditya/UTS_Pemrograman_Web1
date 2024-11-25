@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Berita</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            padding-top: 20px;
+        }
+        .content-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+        }
+        .content-box h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .content-box p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .btn-light {
+            color: #000;
+            background-color: #f8f9fa;
+            border: none;
+        }
+        .btn-light:hover {
+            background-color: #e2e6ea;
+        }
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #ddd;
+            font-size: 14px;
+            padding: 10px 0;
+            background-color: #1c1c1c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="content-box text-center">
+            <h2 id="detail-title">Judul Berita</h2>
+            <p id="detail-content">Deskripsi lengkap tentang berita ini akan muncul di sini.</p>
+            <a href="index.html" class="btn btn-light mt-3">Kembali ke Beranda</a>
+        </div>
+    </div>
+
+    <footer>
+        @Copyright by 22552011082_Ageng Eko Widitya_TIF RP 22 PC CNS
+    </footer>
+
+    <script>
+        // Mengambil parameter 'id' dari URL
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+
+        // Data detail berita
+        const newsDetails = {
+            1: { 
+                title: "Politik Pemilu 2024", 
+                content: "Berita terkini mengenai persiapan pemilu, kandidat terkemuka, dan kebijakan terbaru. Pemilu 2024 menjadi fokus utama, dengan berbagai kebijakan yang sedang disiapkan untuk menghadapi tantangan politik mendatang."
+            },
+            2: { 
+                title: "Ekonomi: Tren Pasar Saham",
+                content: "Analisis terbaru tentang pasar saham dan dampaknya terhadap perekonomian global. Banyak investor yang mulai memperhatikan pergerakan pasar saham sebagai indikator kesehatan ekonomi di berbagai negara."
+            },
+            3: { 
+                 title: "Teknologi: AI dan Masa Depan",
+                content: "Bagaimana kecerdasan buatan mengubah cara kita bekerja dan berinovasi. AI saat ini digunakan di hampir setiap sektor, mulai dari kesehatan hingga otomotif, dan diprediksi akan terus berkembang pesat dalam dekade mendatang."
+            },
+            4: { 
+                title: "Olahraga: Kejuaraan Dunia",
+                content: "Hasil pertandingan terbaru dari kejuaraan dunia olahraga yang sedang berlangsung. Kejuaraan dunia kali ini mempertemukan atlet terbaik dari berbagai negara, dan hasilnya memberikan kejutan bagi para penggemar."
+            },
+            5: { 
+                title: "Hiburan: Film Box Office",
+                content: "Daftar film box office terbaru dan ulasan kritikus ternama. Film-film terbaru berhasil meraih kesuksesan besar di box office dengan alur cerita yang inovatif dan efek visual yang menakjubkan."
+            },
+            6: { 
+                title: "Lingkungan: Perubahan Iklim",
+                content: "Tindakan global untuk mengatasi tantangan perubahan iklim yang mendesak. Para pemimpin dunia terus mencari solusi untuk mengurangi dampak perubahan iklim, dan beberapa langkah penting telah diambil untuk mengurangi emisi karbon."
+            }
+        };
+
+        // Memperbarui konten berdasarkan ID
+        if (id && newsDetails[id]) {
+            document.getElementById("detail-title").textContent = newsDetails[id].title;
+            document.getElementById("detail-content").textContent = newsDetails[id].content;
+        } else {
+            document.getElementById("detail-title").textContent = "Berita Tidak Ditemukan";
+            document.getElementById("detail-content").textContent = "ID berita yang dimasukkan tidak valid.";
+        }
+    </script>
+</body>
+</html>
